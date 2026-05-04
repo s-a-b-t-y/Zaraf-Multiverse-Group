@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 400 380" height="380" width="400">
+  
+  
+  <path fill="#1E4B9E" d="M80 50 L320 50 L320 330 L80 330 Z"></path>
+  
+  
+  
+  <path fill="white" d="M80 50 L200 180 L190 50 Z"></path>
+  
+  <path fill="white" d="M130 100 L290 260 L280 100 Z"></path>
+  
+  
+  
+  <path fill="white" d="M100 120 L110 330 L160 330 L160 190 Z"></path>
+  
+  
+  <path fill="white" d="M180 190 L190 330 L230 330 L230 220 Z"></path>
+  
+  
+  <path fill="#FF6B6B" d="M310 320 L320 330 L290 330 Z"></path>
+  
+  
+  
+  <path fill="#1E4B9E" d="M250 80 L320 80 L290 150 L250 120 Z"></path>
+  
+  
+  <path fill="#1E4B9E" d="M220 140 L310 250 L320 250 L320 220 L280 170 Z"></path>
+  
+  
+  <path fill="#1E4B9E" d="M270 280 L310 320 L320 320 L320 290 Z"></path>
+  
+  
+  <circle fill="white" stroke-width="6" stroke="#1A1A1A" r="28" cy="70" cx="340"></circle>
+  <text fill="#1A1A1A" font-weight="900" font-size="26" font-family="Arial Black, sans-serif" text-anchor="middle" y="78" x="340">TM</text>
+</svg>
