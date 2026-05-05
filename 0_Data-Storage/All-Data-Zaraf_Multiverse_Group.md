@@ -6,6 +6,13 @@ Zaraf Multiverse Group is a modern, diversified, and forward-looking business gr
 
 The core objective of the group is to develop an integrated ecosystem across sectors such as technology, infrastructure, transportation, real estate, and business consultancy. Each sister concern operates with its own expertise, but all share a common goal—ensuring quality, innovation, and customer satisfaction.
 
+## Success Rate
+At Zaraf Multiverse Group, we are committed to delivering excellence across all our ventures. As a fast-growing organization, we are building a strong record of successful operations and client satisfaction.
+Current Success Rate: 90%+ (Growing)
+
+## Journey Time
+Our journey officially began on January 25, 2024, with a vision to build a multi-sector business group. The company formally started its operations through a written agreement on January 19, 2025. Since then, we have launched multiple ventures including transport, consultancy, and technology services, and continue to grow steadily.
+
 ### Business Verticals
 
 Zaraf Tech Hive Limited
@@ -133,3 +140,10 @@ Zaraf Consultancy Limited
 https://www.facebook.com/share/1CbNtzfdBe/
 Zaraf Real Estate
 https://www.facebook.com/share/1LuFXrEgqZ/
+
+
+
+# Zaraf Multiverse Group's contact information and location link :
+Phone Number : +8801580678770
+Address : House/Flat # SA#60, RS#108, Plot # 843, GM BARIBADDA, SATARKUL ROAD, UTTAR BADDA, DHAKA
+Address google map link {startrkul road} : https://www.google.com/maps/dir//Satarkul+Road,+Dhaka,+Bangladesh,+Plot+-78,+Satarkul+Rd,+Dhaka+1212/@23.81355,90.4036597,11977m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x3755c7487ace23b9:0xe482cd6304dd0224!2m2!1d90.4373968!2d23.7892005!3e0?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D
