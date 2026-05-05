@@ -131,3 +131,29 @@ document.querySelectorAll('.footer-list a').forEach(link => {
     this.style.textShadow = 'none';
   });
 });
+
+/* ── Contact Modal ── */
+const contactOverlay = document.getElementById('contactModalOverlay');
+
+function openContactModal() {
+  contactOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  // Close mobile menu if open
+  hamburger.classList.remove('open');
+  navLinksContainer.classList.remove('open');
+}
+
+function closeContactModal(e) {
+  // If called from overlay click, only close when clicking the backdrop itself
+  if (e && e.target !== contactOverlay) return;
+  contactOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    contactOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
