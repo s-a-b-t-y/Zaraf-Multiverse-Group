@@ -157,7 +157,7 @@ address{font-style:normal}
 .services-section{background:var(--navy-900)}
 .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .service-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--white-05);overflow:hidden;transition:var(--transition);position:relative}
-.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.06),transparent);opacity:0;transition:var(--transition)}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.06),transparent);opacity:0;transition:var(--transition);pointer-events:none}
 .service-card:hover{border-color:var(--gold-400);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.5),var(--shadow-gold)}
 .service-card:hover::before{opacity:1}
 .service-card.featured{border-color:rgba(201,168,76,0.45);background:linear-gradient(160deg,rgba(201,168,76,0.09),var(--white-05))}
@@ -170,8 +170,8 @@ address{font-style:normal}
 .service-features{display:flex;flex-direction:column;gap:6px}
 .service-features li{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--white-70)}
 .service-features i{color:var(--gold-400);font-size:0.7rem}
-.service-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:var(--gold-400);letter-spacing:0.06em;text-transform:uppercase;margin-top:auto;transition:var(--transition)}
-.service-link:hover{color:var(--gold-200);gap:10px}
+.service-link{display:inline-flex;align-items:center;justify-content:center;margin-top:auto;padding:10px 20px;border:1.5px solid var(--gold-400);border-radius:6px;font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-300);background:transparent;transition:var(--transition);cursor:pointer;text-decoration:none;width:100%}
+.service-link:hover{background:var(--gold-400);color:var(--navy-900);box-shadow:var(--shadow-gold);transform:translateY(-2px)}
 
 /* ═══════════════ REVIEWS ═══════════════ */
 .reviews-section{background:var(--navy-950)}
