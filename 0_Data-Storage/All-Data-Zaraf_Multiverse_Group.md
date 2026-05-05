@@ -60,6 +60,7 @@ Excellence and professionalism
 Zaraf Multiverse Group is committed to setting a new standard in the future business world—where innovation, responsibility, and the drive for success work together.
 
 # Chairman Details
+Facebook Id Link : https://www.facebook.com/ideal.ayaz2z
 
 🧑‍💼 Chairman
 
