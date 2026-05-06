@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="About Zaraf Multiverse Group – Learn about our vision, mission, success rate, and our Chairman Ayaz Zaraf."
+    />
+    <title>About Us | Zaraf Multiverse Group</title>
+    <link rel="icon" type="image/png" href="../00_Library/favicon/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../1.Home_Page/style.css" />
+    <link rel="stylesheet" href="about.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Left: Logo + Name -->
+        <a href="../index.html" class="nav-brand">
+          <img
+            src="../00_Library/Logo/logo.svg.svg"
+            alt="Zaraf Multiverse Group Logo"
+            class="nav-logo"
+          />
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">Zaraf Multiverse</span>
+            <span class="nav-brand-sub">Group</span>
+          </div>
+        </a>
+
+        <!-- Center: Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="../index.html#home" class="nav-link" data-section="home">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="nav-link active" data-section="about">About</a>
+          </li>
+          <li>
+            <a href="../index.html#services" class="nav-link" data-section="services">Services</a>
+          </li>
+          <li>
+            <a href="../index.html#reviews" class="nav-link" data-section="reviews">Reviews</a>
+          </li>
+          <li class="nav-contact-mobile">
+            <button class="nav-btn-contact" id="navContactMobile" onclick="openContactModal()">
+              <i class="fa-solid fa-address-card"></i> Contact
+            </button>
+          </li>
+        </ul>
+
+        <!-- Right: Contact CTA -->
+        <button class="nav-cta" id="navCta" onclick="openContactModal()">
+          <span>Contact</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title" data-animate="fade-up">
+          <span class="gold">About</span> Zaraf Multiverse
+        </h1>
+        <p class="page-subtitle" data-animate="fade-up" data-delay="100">
+          Discover our journey, our vision for the future, and the leadership driving our multi-industry success.
+        </p>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════ COMPANY INFO ═══════════════════════════ -->
+    <section class="section about-details-section">
+      <div class="container">
+        <div class="about-details-grid">
+          <div class="about-text-content" data-animate="fade-right">
+            <div class="section-tag">Who We Are</div>
+            <h2 class="section-title" style="margin-bottom:1.5rem">An Integrated Ecosystem</h2>
+            <p>
+              Zaraf Multiverse Group is a modern, diversified, and forward-looking business group committed to creating a positive impact on individuals, organizations, and the overall economy by delivering integrated services across multiple sectors.
+            </p>
+            <p>
+              Established in Bangladesh, the group is gradually working toward building a strong multinational business network.
+            </p>
+            <p>
+              The core objective of the group is to develop an integrated ecosystem across sectors such as technology, infrastructure, transportation, real estate, and business consultancy. Each sister concern operates with its own expertise, but all share a common goal—ensuring quality, innovation, and customer satisfaction.
+            </p>
+          </div>
+          
+          <div class="journey-card" data-animate="fade-left">
+            <h3>Our Journey</h3>
+            <p style="color:var(--white-70); line-height:1.8; margin-bottom: 1rem;">
+              Our journey officially began on January 25, 2024, with a vision to build a multi-sector business group. The company formally started its operations through a written agreement on January 19, 2025.
+            </p>
+            <p style="color:var(--white-70); line-height:1.8;">
+              Since then, we have launched multiple ventures including transport, consultancy, and technology services, and continue to grow steadily.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ SUCCESS RATE ═══════════════════════════ -->
+    <section class="section success-rate-section">
+      <div class="container success-rate-container">
+        <div class="success-number-wrapper" data-animate="fade-up">
+          <div class="success-number-inner">
+            <span class="success-number"><span class="stat-number" data-target="90">0</span>%<span style="font-size:3rem; margin-left: 2px;">+</span></span>
+          </div>
+        </div>
+        <h2 class="section-title" data-animate="fade-up" data-delay="100">Committed to Excellence</h2>
+        <p class="success-text" data-animate="fade-up" data-delay="200">
+          As a fast-growing organization, we are building a strong record of successful operations and client satisfaction across all our ventures.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ VISION & MISSION ═══════════════════════════ -->
+    <section class="section vision-mission-section">
+      <div class="container">
+        <div class="vm-grid">
+          <div class="vm-card" data-animate="fade-up" data-delay="0">
+            <i class="fa-solid fa-eye vm-icon"></i>
+            <h3 class="vm-title">Our Vision</h3>
+            <p class="vm-desc">
+              To become a leading multinational business group that brings positive change to society and the economy through innovation, development, and sustainable growth.
+            </p>
+          </div>
+          <div class="vm-card" data-animate="fade-up" data-delay="100">
+            <i class="fa-solid fa-bullseye vm-icon"></i>
+            <h3 class="vm-title">Our Mission</h3>
+            <p class="vm-desc">
+              To build a strong business ecosystem by delivering integrated and high-quality services across various sectors, creating long-term value for customers, partners, and society.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ CHAIRMAN SECTION ═══════════════════════════ -->
+    <section class="section chairman-section">
+      <div class="container">
+        <div class="section-header" data-animate="fade-up">
+          <span class="section-tag">Leadership</span>
+          <h2 class="section-title">Meet Our Chairman</h2>
+        </div>
+
+        <div class="chairman-layout">
+          <div class="chairman-image-col" data-animate="fade-right">
+            <div class="chairman-img-wrap">
+              <img src="../00_Library/Director-Picture/chairman.png" alt="Ayaz Zaraf - Chairman" class="chairman-img" />
+            </div>
+            <div class="chairman-socials">
+              <a href="https://www.facebook.com/ideal.ayaz2z" target="_blank" rel="noopener" class="social-icon">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="chairman-content-col" data-animate="fade-left">
+            <div class="chairman-header">
+              <h2>Ayaz Zaraf</h2>
+              <div class="chairman-position">Chairman, Zaraf Multiverse Group</div>
+              <p class="chairman-about">
+                Ayaz Zaraf is the Chairman of ZARAF MULTIVERSE. He is a visionary entrepreneur, business consultant, and motivational speaker dedicated to building a diversified and sustainable business ecosystem. He actively works in business development, consultancy, and entrepreneurship training, helping to create new entrepreneurs and business leaders.
+              </p>
+            </div>
+
+            <div class="chairman-grid">
+              <!-- Education -->
+              <div class="cg-card">
+                <h4 class="cg-card-title"><i class="fa-solid fa-graduation-cap"></i> Education & Training</h4>
+                <ul class="cg-list">
+                  <li><i class="fa-solid fa-circle"></i> Diploma Engineer</li>
+                  <li><i class="fa-solid fa-circle"></i> Industrial Electronics Maintenance</li>
+                  <li><i class="fa-solid fa-circle"></i> Training under BB Safe Project, Japan</li>
+                </ul>
+              </div>
+
+              <!-- Experience -->
+              <div class="cg-card">
+                <h4 class="cg-card-title"><i class="fa-solid fa-briefcase"></i> Experience & Roles</h4>
+                <ul class="cg-list">
+                  <li><i class="fa-solid fa-circle"></i> Deputy Director at Maryland Homes Ltd</li>
+                  <li><i class="fa-solid fa-circle"></i> Joint Director at Mother's Land Homes</li>
+                  <li><i class="fa-solid fa-circle"></i> Shareholder of Iconic Express Bus</li>
+                  <li><i class="fa-solid fa-circle"></i> Founder of Zaraf Consultancy</li>
+                </ul>
+              </div>
+
+              <!-- Ventures -->
+              <div class="cg-card">
+                <h4 class="cg-card-title"><i class="fa-solid fa-building"></i> Business Ventures</h4>
+                <ul class="cg-list">
+                  <li><i class="fa-solid fa-circle"></i> Zaraf Transport</li>
+                  <li><i class="fa-solid fa-circle"></i> Zaraf Consultancy</li>
+                  <li><i class="fa-solid fa-circle"></i> Zaraf Agro & Furniture</li>
+                  <li><i class="fa-solid fa-circle"></i> Zaraf Real Estate & Tech Hive</li>
+                </ul>
+              </div>
+
+              <!-- Future -->
+              <div class="cg-card">
+                <h4 class="cg-card-title"><i class="fa-solid fa-rocket"></i> Future Expansion</h4>
+                <ul class="cg-list">
+                  <li><i class="fa-solid fa-circle"></i> Garments & Pharmacy</li>
+                  <li><i class="fa-solid fa-circle"></i> Hospital Services</li>
+                  <li><i class="fa-solid fa-circle"></i> Hotels, Restaurants & Resorts</li>
+                </ul>
+              </div>
+
+              <!-- Chairman Vision -->
+              <div class="cg-card" style="grid-column: 1 / -1;">
+                <h4 class="cg-card-title"><i class="fa-solid fa-star"></i>Vision</h4>
+                <p style="color:var(--white-70); font-size:0.95rem; line-height:1.6;">
+                  To establish ZARAF MULTIVERSE as a leading global multi-industry group through innovation, leadership, and entrepreneurship development.
+                </p>
+              </div>
+
+              <!-- Message -->
+              <div class="chairman-message">
+                "I believe in innovation, knowledge sharing, and building entrepreneurs. ZARAF MULTIVERSE is not just a business group, it is a platform to create opportunities and shape the future."
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="footer" id="footer">
+      <div class="footer-top-line"></div>
+      <div class="footer-container">
+        <!-- Left: Brand + Social -->
+        <div class="footer-brand">
+          <a href="../index.html">
+            <div class="footer-logo-wrap">
+              <img
+                src="../00_Library/Logo/logo.svg.svg"
+                alt="Zaraf Multiverse Group"
+                class="footer-logo"
+              />
+              <div class="footer-brand-text">
+                <span class="footer-brand-name">Zaraf Multiverse</span>
+                <span class="footer-brand-sub">Group</span>
+              </div>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Strategic excellence across every frontier.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/share/1FpSgmhH8F/"
+              target="_blank"
+              rel="noopener"
+              class="social-icon"
+              id="socialFb"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://wa.me/8801580678770"
+              target="_blank"
+              rel="noopener"
+              class="social-icon"
+              id="socialWa"
+              aria-label="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Middle: Nav + Services -->
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-list">
+              <li><a href="../index.html#home">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="../index.html#services">Services</a></li>
+              <li><a href="../index.html#reviews">Reviews</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Services</h4>
+            <ul class="footer-list">
+              <li>
+                <a
+                  href="https://www.facebook.com/share/18ZcpttHJy/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Transport</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1AyhTgR8ZT/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Tech Hive Limited</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1LuFXrEgqZ/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Real Estate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1CbNtzfdBe/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Consultancy Limited</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: Address + Direction -->
+        <div class="footer-direction">
+          <h4 class="footer-col-title">Our Location</h4>
+          <address class="footer-address">
+            House/Flat # SA#60, RS#108,<br />
+            Plot # 843, GM Bari Badda,<br />
+            Satarkul Road, Uttar Badda,<br />
+            Dhaka – 1212, Bangladesh
+          </address>
+          <a
+            href="https://www.google.com/maps/dir//Satarkul+Road,+Dhaka,+Bangladesh,+Plot+-78,+Satarkul+Rd,+Dhaka+1212/@23.81355,90.4036597,11977m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x3755c7487ace23b9:0xe482cd6304dd0224!2m2!1d90.4373968!2d23.7892005!3e0?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener"
+            class="btn-direction"
+            id="btnDirection"
+          >
+            <i class="fa-solid fa-location-arrow"></i>
+            <span>Get Direction</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Zaraf Multiverse Group. All rights reserved.</p>
+        <p class="footer-powered">
+          Powered by <strong>Zaraf Tech Hive Limited</strong>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════ CONTACT MODAL ═══════════════════════════ -->
+    <div class="contact-modal-overlay" id="contactModalOverlay" onclick="closeContactModal(event)">
+      <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact Us">
+
+        <!-- Close button -->
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Header -->
+        <div class="contact-modal-header">
+          <div class="contact-modal-icon-wrap">
+            <i class="fa-solid fa-address-book"></i>
+          </div>
+          <h2 class="contact-modal-title">Get In Touch</h2>
+          <p class="contact-modal-sub">Reach us through any of the channels below</p>
+        </div>
+
+        <!-- Items -->
+        <div class="contact-modal-items">
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/share/1FpSgmhH8F/" target="_blank" rel="noopener" class="contact-modal-item" id="cmFacebook">
+            <div class="cmi-icon cmi-icon-fb">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="cmi-text">
+              <strong>Visit our Facebook Page</strong>
+              <span>Follow us for latest updates</span>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square cmi-arrow"></i>
+          </a>
+
+          <!-- Call Now -->
+          <a href="tel:+8801580678770" class="contact-modal-item" id="cmCall">
+            <div class="cmi-icon cmi-icon-call">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="cmi-text">
+              <strong>Call Now</strong>
+              <span>+880 1580-678770</span>
+            </div>
+            <i class="fa-solid fa-chevron-right cmi-arrow"></i>
+          </a>
+
+          <!-- Address -->
+          <div class="contact-modal-item contact-modal-address" id="cmAddress">
+            <div class="cmi-icon cmi-icon-addr">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="cmi-text">
+              <strong>Our Address</strong>
+              <span>House/Flat # SA#60, RS#108, Plot # 843,<br>GM Baribadda, Satarkul Road,<br>Uttar Badda, Dhaka – 1212</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Get Direction -->
+        <a href="https://www.google.com/maps/dir//Satarkul+Road,+Dhaka,+Bangladesh,+Plot+-78,+Satarkul+Rd,+Dhaka+1212/@23.81355,90.4036597,11977m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x3755c7487ace23b9:0xe482cd6304dd0224!2m2!1d90.4373968!2d23.7892005!3e0?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+           target="_blank" rel="noopener" class="contact-modal-direction">
+          <i class="fa-solid fa-location-arrow"></i>
+          <span>Get Direction</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../1.Home_Page/script.js"></script>
+    <script src="about.js"></script>
+  </body>
+</html>
