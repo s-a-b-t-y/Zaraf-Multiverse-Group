@@ -97,11 +97,6 @@
   border-radius: 50%;
   border: 2px dashed rgba(201,168,76,0.3);
   margin-bottom: 2rem;
-  animation: rotateBorder 15s linear infinite;
-}
-
-@keyframes rotateBorder {
-  100% { transform: rotate(360deg); }
 }
 
 .success-number-inner {
@@ -112,11 +107,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: reverseRotate 15s linear infinite;
-}
-
-@keyframes reverseRotate {
-  100% { transform: rotate(-360deg); }
 }
 
 .success-number {
