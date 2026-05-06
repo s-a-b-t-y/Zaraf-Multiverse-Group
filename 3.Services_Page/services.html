@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Services of Zaraf Multiverse Group – Discover our business verticals including Tech Hive, Transport, Real Estate, and Consultancy."
+    />
+    <title>Services | Zaraf Multiverse Group</title>
+    <link rel="icon" type="image/png" href="../00_Library/favicon/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../1.Home_Page/style.css" />
+    <link rel="stylesheet" href="services.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Left: Logo + Name -->
+        <a href="../index.html" class="nav-brand">
+          <img
+            src="../00_Library/Logo/logo.svg.svg"
+            alt="Zaraf Multiverse Group Logo"
+            class="nav-logo"
+          />
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">Zaraf Multiverse</span>
+            <span class="nav-brand-sub">Group</span>
+          </div>
+        </a>
+
+        <!-- Center: Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="../index.html#home" class="nav-link" data-section="home">Home</a>
+          </li>
+          <li>
+            <a href="../2.About_Page/about.html" class="nav-link" data-section="about">About</a>
+          </li>
+          <li>
+            <a href="services.html" class="nav-link active" data-section="services">Services</a>
+          </li>
+          <li>
+            <a href="../index.html#reviews" class="nav-link" data-section="reviews">Reviews</a>
+          </li>
+          <li class="nav-contact-mobile">
+            <button class="nav-btn-contact" id="navContactMobile" onclick="openContactModal()">
+              <i class="fa-solid fa-address-card"></i> Contact
+            </button>
+          </li>
+        </ul>
+
+        <!-- Right: Contact CTA -->
+        <button class="nav-cta" id="navCta" onclick="openContactModal()">
+          <span>Contact</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════ HEADER ═══════════════════════════ -->
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title" data-animate="fade-up">
+          <span class="gold">Our</span> Companies
+        </h1>
+        <p class="page-subtitle" data-animate="fade-up" data-delay="100">
+          Explore the distinct business verticals that form the pillars of the Zaraf Ecosystem. Each subsidiary operates with its own expertise, sharing a common goal of excellence.
+        </p>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════ COMPANIES SECTION ═══════════════════════════ -->
+    <section class="section services-page-section">
+      <div class="container">
+        <div class="companies-container">
+          
+          <!-- Zaraf Tech Hive Limited -->
+          <div class="company-row" data-animate="fade-up">
+            <div class="company-header-area">
+              <div class="company-icon-box">
+                <i class="fa-solid fa-microchip"></i>
+              </div>
+              <h2 class="company-title">Zaraf Tech Hive Limited</h2>
+            </div>
+            <div class="company-content">
+              <p class="company-desc">
+                As the technological backbone of the group, Zaraf Tech Hive Limited delivers a full range of online digital services. These include web solutions, social media management, digital support, and end-to-end event management. The company plays a key role in strengthening the digital presence and operational efficiency of businesses.
+              </p>
+              <ul class="company-features">
+                <li><i class="fa-solid fa-circle-check"></i> Provides all types of online digital services (web, social media, IT support)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Offers complete event management (both online and offline)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Develops and manages brand digital presence</li>
+                <li><i class="fa-solid fa-circle-check"></i> Delivers customized technology solutions for businesses</li>
+              </ul>
+              <div class="company-socials">
+                <a href="https://www.facebook.com/share/1AyhTgR8ZT/" target="_blank" rel="noopener" class="btn-social btn-facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/8801580678770" target="_blank" rel="noopener" class="btn-social btn-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="tel:+8801580678770" class="btn-social btn-call" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zaraf Transport -->
+          <div class="company-row" data-animate="fade-up" data-delay="100">
+            <div class="company-header-area">
+              <div class="company-icon-box">
+                <i class="fa-solid fa-bus-simple"></i>
+              </div>
+              <h2 class="company-title">Zaraf Transport</h2>
+            </div>
+            <div class="company-content">
+              <p class="company-desc">
+                Zaraf Transport is a modern transportation service provider focused on introducing safe, reliable, and comfortable bus services across Bangladesh. Its primary commitment is to maintain high service standards while ensuring maximum convenience and comfort for passengers.
+              </p>
+              <ul class="company-features">
+                <li><i class="fa-solid fa-circle-check"></i> Aims to launch modern bus services across Bangladesh</li>
+                <li><i class="fa-solid fa-circle-check"></i> Ensures safe, reliable, and punctual passenger transport</li>
+                <li><i class="fa-solid fa-circle-check"></i> Maintains advanced fleet management and service standards</li>
+                <li><i class="fa-solid fa-circle-check"></i> Focuses on passenger comfort, safety, and overall experience</li>
+              </ul>
+              <div class="company-socials">
+                <a href="https://www.facebook.com/share/18ZcpttHJy/" target="_blank" rel="noopener" class="btn-social btn-facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="btn-social btn-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="btn-social btn-call" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zaraf Real Estate -->
+          <div class="company-row" data-animate="fade-up" data-delay="200">
+            <div class="company-header-area">
+              <div class="company-icon-box">
+                <i class="fa-solid fa-building-columns"></i>
+              </div>
+              <h2 class="company-title">Zaraf Real Estate</h2>
+            </div>
+            <div class="company-content">
+              <p class="company-desc">
+                Zaraf Real Estate is engaged in the development of residential and commercial properties. Through modern design, sustainable construction practices, and planned development, the company is dedicated to creating improved living standards and a better business environment.
+              </p>
+              <ul class="company-features">
+                <li><i class="fa-solid fa-circle-check"></i> Develops residential and commercial projects</li>
+                <li><i class="fa-solid fa-circle-check"></i> Focuses on modern and sustainable design and construction</li>
+                <li><i class="fa-solid fa-circle-check"></i> Supports planned urban development and improved living standards</li>
+                <li><i class="fa-solid fa-circle-check"></i> Creates investment-friendly and long-term assets</li>
+              </ul>
+              <div class="company-socials">
+                <a href="https://www.facebook.com/share/1LuFXrEgqZ/" target="_blank" rel="noopener" class="btn-social btn-facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/8801883335387" target="_blank" rel="noopener" class="btn-social btn-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="tel:+8801821345959" class="btn-social btn-call" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Zaraf Consultancy Limited -->
+          <div class="company-row" data-animate="fade-up" data-delay="300">
+            <div class="company-header-area">
+              <div class="company-icon-box">
+                <i class="fa-solid fa-chess-king"></i>
+              </div>
+              <h2 class="company-title">Zaraf Consultancy Limited</h2>
+            </div>
+            <div class="company-content">
+              <p class="company-desc">
+                Zaraf Consultancy Limited provides innovative business ideas, strategic guidance, and problem-solving services for businesses and entrepreneurs. Notably, the company offers consultancy services completely free of cost, playing an important role in supporting new entrepreneurs and business growth.
+              </p>
+              <ul class="company-features">
+                <li><i class="fa-solid fa-circle-check"></i> Provides business ideas and strategic consultancy</li>
+                <li><i class="fa-solid fa-circle-check"></i> Offers effective solutions to various business challenges</li>
+                <li><i class="fa-solid fa-circle-check"></i> Supports entrepreneurs and startups with guidance</li>
+                <li><i class="fa-solid fa-circle-check"></i> Provides consultancy services completely free of cost</li>
+              </ul>
+              <div class="company-socials">
+                <a href="https://www.facebook.com/share/1CbNtzfdBe/" target="_blank" rel="noopener" class="btn-social btn-facebook" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://wa.me/8801883335387" target="_blank" rel="noopener" class="btn-social btn-whatsapp" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="tel:+8801883335387" class="btn-social btn-call" aria-label="Call"><i class="fa-solid fa-phone"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="footer" id="footer">
+      <div class="footer-top-line"></div>
+      <div class="footer-container">
+        <!-- Left: Brand + Social -->
+        <div class="footer-brand">
+          <a href="../index.html">
+            <div class="footer-logo-wrap">
+              <img
+                src="../00_Library/Logo/logo.svg.svg"
+                alt="Zaraf Multiverse Group"
+                class="footer-logo"
+              />
+              <div class="footer-brand-text">
+                <span class="footer-brand-name">Zaraf Multiverse</span>
+                <span class="footer-brand-sub">Group</span>
+              </div>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Strategic excellence across every frontier.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://www.facebook.com/share/1FpSgmhH8F/"
+              target="_blank"
+              rel="noopener"
+              class="social-icon"
+              id="socialFb"
+              aria-label="Facebook"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a
+              href="https://wa.me/8801580678770"
+              target="_blank"
+              rel="noopener"
+              class="social-icon"
+              id="socialWa"
+              aria-label="WhatsApp"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Middle: Nav + Services -->
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-list">
+              <li><a href="../index.html#home">Home</a></li>
+              <li><a href="../2.About_Page/about.html">About</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="../index.html#reviews">Reviews</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4 class="footer-col-title">Services</h4>
+            <ul class="footer-list">
+              <li>
+                <a
+                  href="https://www.facebook.com/share/18ZcpttHJy/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Transport</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1AyhTgR8ZT/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Tech Hive Limited</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1LuFXrEgqZ/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Real Estate</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/share/1CbNtzfdBe/"
+                  target="_blank"
+                  rel="noopener"
+                  >Zaraf Consultancy Limited</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right: Address + Direction -->
+        <div class="footer-direction">
+          <h4 class="footer-col-title">Our Location</h4>
+          <address class="footer-address">
+            House/Flat # SA#60, RS#108,<br />
+            Plot # 843, GM Bari Badda,<br />
+            Satarkul Road, Uttar Badda,<br />
+            Dhaka – 1212, Bangladesh
+          </address>
+          <a
+            href="https://www.google.com/maps/dir//Satarkul+Road,+Dhaka,+Bangladesh,+Plot+-78,+Satarkul+Rd,+Dhaka+1212/@23.81355,90.4036597,11977m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x3755c7487ace23b9:0xe482cd6304dd0224!2m2!1d90.4373968!2d23.7892005!3e0?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            rel="noopener"
+            class="btn-direction"
+            id="btnDirection"
+          >
+            <i class="fa-solid fa-location-arrow"></i>
+            <span>Get Direction</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Zaraf Multiverse Group. All rights reserved.</p>
+        <p class="footer-powered">
+          Powered by <strong>Zaraf Tech Hive Limited</strong>
+        </p>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════ CONTACT MODAL ═══════════════════════════ -->
+    <div class="contact-modal-overlay" id="contactModalOverlay" onclick="closeContactModal(event)">
+      <div class="contact-modal" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact Us">
+
+        <!-- Close button -->
+        <button class="contact-modal-close" onclick="closeContactModal()" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Header -->
+        <div class="contact-modal-header">
+          <div class="contact-modal-icon-wrap">
+            <i class="fa-solid fa-address-book"></i>
+          </div>
+          <h2 class="contact-modal-title">Get In Touch</h2>
+          <p class="contact-modal-sub">Reach us through any of the channels below</p>
+        </div>
+
+        <!-- Items -->
+        <div class="contact-modal-items">
+
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/share/1FpSgmhH8F/" target="_blank" rel="noopener" class="contact-modal-item" id="cmFacebook">
+            <div class="cmi-icon cmi-icon-fb">
+              <i class="fa-brands fa-facebook-f"></i>
+            </div>
+            <div class="cmi-text">
+              <strong>Visit our Facebook Page</strong>
+              <span>Follow us for latest updates</span>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square cmi-arrow"></i>
+          </a>
+
+          <!-- Call Now -->
+          <a href="tel:+8801580678770" class="contact-modal-item" id="cmCall">
+            <div class="cmi-icon cmi-icon-call">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="cmi-text">
+              <strong>Call Now</strong>
+              <span>+880 1580-678770</span>
+            </div>
+            <i class="fa-solid fa-chevron-right cmi-arrow"></i>
+          </a>
+
+          <!-- Address -->
+          <div class="contact-modal-item contact-modal-address" id="cmAddress">
+            <div class="cmi-icon cmi-icon-addr">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="cmi-text">
+              <strong>Our Address</strong>
+              <span>House/Flat # SA#60, RS#108, Plot # 843,<br>GM Baribadda, Satarkul Road,<br>Uttar Badda, Dhaka – 1212</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Get Direction -->
+        <a href="https://www.google.com/maps/dir//Satarkul+Road,+Dhaka,+Bangladesh,+Plot+-78,+Satarkul+Rd,+Dhaka+1212/@23.81355,90.4036597,11977m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0x3755c7487ace23b9:0xe482cd6304dd0224!2m2!1d90.4373968!2d23.7892005!3e0?entry=ttu&g_ep=EgoyMDI2MDQyOS4wIKXMDSoASAFQAw%3D%3D"
+           target="_blank" rel="noopener" class="contact-modal-direction">
+          <i class="fa-solid fa-location-arrow"></i>
+          <span>Get Direction</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../1.Home_Page/script.js"></script>
+    <script src="services.js"></script>
+  </body>
+</html>

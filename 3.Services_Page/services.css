@@ -1,0 +1,221 @@
+/* ═══════════════════════════ SERVICES PAGE STYLES ═══════════════════════════ */
+
+/* Page Header */
+.page-header {
+  padding: 180px 2rem 80px;
+  text-align: center;
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.08) 0%, var(--navy-900) 60%);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+.page-title .gold { color: var(--gold-400); }
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: var(--white-70);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-page-section {
+  padding: 4rem 0 6rem 0;
+}
+
+.companies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.company-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--bg-card); /* Should be inherited from global style.css */
+  border: 1px solid var(--border-color); /* Should be inherited from global style.css */
+  border-radius: 20px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.company-row:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold); /* Inherited */
+}
+
+.company-row::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.company-row:hover::before {
+  opacity: 1;
+}
+
+.company-header-area {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.company-icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.company-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.company-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.company-desc {
+  color: var(--white-70);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.company-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.company-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--white-90);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.company-features li i {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.company-socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.btn-social {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--white);
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-social:hover {
+  transform: translateY(-3px);
+}
+
+.btn-facebook:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background: #25D366;
+  border-color: #25D366;
+  color: white;
+}
+
+.btn-call:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-dark);
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .company-features {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+  
+  .company-row {
+    padding: 2.5rem;
+  }
+  
+  .company-icon-box {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+  
+  .company-title {
+    font-size: 2.2rem;
+  }
+  
+  .company-desc {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .companies-container {
+    gap: 4rem;
+  }
+  
+  .company-row {
+    padding: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    padding: 140px 1.5rem 60px;
+  }
+}
