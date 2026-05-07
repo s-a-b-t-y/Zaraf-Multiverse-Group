@@ -166,26 +166,36 @@ address{font-style:normal}
 .service-icon-wrap {
   width: 60px;
   height: 60px;
-  background: rgba(212, 175, 55, 0.1);
-  border-radius: 12px;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid var(--border);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  color: var(--gold-400);
-  margin-bottom: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
   overflow: hidden;
+  padding: 8px;
+  transition: var(--transition);
 }
 
-.company-icon {
+.company-logo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 5px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease;
 }
-.company-logo{width:60%;height:60%;background-size:contain;background-position:center;background-repeat:no-repeat}
-.service-card:hover .service-icon-wrap{background:var(--gold-400);color:var(--navy-900);transform:scale(1.1)}
+
+.service-card:hover .service-icon-wrap {
+  background: var(--gold-400);
+  border-color: var(--gold-400);
+  transform: translateY(-2px);
+}
+
+.service-card:hover .company-logo {
+  transform: scale(1.1);
+}
 .service-title{font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.3}
 .service-desc{font-size:0.86rem;color:var(--white-70);line-height:1.7;flex:1}
 .service-features{display:flex;flex-direction:column;gap:6px}

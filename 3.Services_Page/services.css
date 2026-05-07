@@ -83,25 +83,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  color: var(--gold);
   flex-shrink: 0;
   overflow: hidden;
-}
-
-.company-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 5px;
+  padding: 8px; /* Acts as padding for the background image */
 }
 
 .company-logo {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
+  transition: transform 0.4s ease;
+}
+
+.company-row:hover .company-logo {
+  transform: scale(1.1);
 }
 
 .company-title {
