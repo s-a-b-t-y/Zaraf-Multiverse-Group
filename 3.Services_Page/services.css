@@ -88,6 +88,14 @@
   flex-shrink: 0;
 }
 
+.company-logo {
+  width: 60%;
+  height: 60%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .company-title {
   font-family: var(--font-heading);
   font-size: 1.8rem;
