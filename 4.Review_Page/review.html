@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="What our clients and partners say about Zaraf Multiverse Group. Real stories, real impact."
+    />
+    <title>Reviews | Zaraf Multiverse Group</title>
+    <link rel="icon" type="image/png" href="../00_Library/favicon/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../1.Home_Page/style.css" />
+    <link rel="stylesheet" href="review.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Left: Logo + Name -->
+        <a href="../index.html#home" class="nav-brand">
+          <img
+            src="../00_Library/Logo/logo.svg.svg"
+            alt="Zaraf Multiverse Group Logo"
+            class="nav-logo"
+          />
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">Zaraf Multiverse</span>
+            <span class="nav-brand-sub">Group</span>
+          </div>
+        </a>
+
+        <!-- Center: Nav Links -->
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="../index.html#home" class="nav-link" data-section="home">Home</a>
+          </li>
+          <li>
+            <a href="../2.About_Page/about.html" class="nav-link" data-section="about">About</a>
+          </li>
+          <li>
+            <a href="../3.Services_Page/services.html" class="nav-link" data-section="services">Services</a>
+          </li>
+          <li>
+            <a href="review.html" class="nav-link active" data-section="reviews">Reviews</a>
+          </li>
+          <li class="nav-contact-mobile">
+            <button class="nav-btn-contact" onclick="openContactModal()">
+              <i class="fa-solid fa-address-card"></i> Contact
+            </button>
+          </li>
+        </ul>
+
+        <!-- Right: Contact CTA -->
+        <button class="nav-cta" id="navCta" onclick="openContactModal()">
+          <span>Contact</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section class="review-hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-content">
+        <div class="hero-badge" data-animate="fade-up">
+          <span class="badge-dot"></span>
+          Client Voices
+        </div>
+        <h1 class="hero-title" data-animate="fade-up" data-delay="100">
+          Real Stories of <br /><span class="gold">Exceptional Impact</span>
+        </h1>
+        <p class="hero-subtitle" data-animate="fade-up" data-delay="200">
+          We are committed to delivering quality, innovation, and customer satisfaction. 
+          Discover what our clients have to say about their experience with Zaraf Multiverse Group.
+        </p>
+        <div class="hero-actions" data-animate="fade-up" data-delay="300">
+          <button class="btn btn-primary" onclick="openReviewModal()">
+            <i class="fa-solid fa-pen-nib"></i> Give Your Review
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ REVIEWS GRID ═══════════════════════════ -->
+    <section class="section reviews-page-section">
+      <div class="container">
+        <div id="reviews-container" class="reviews-page-grid">
+          <!-- Reviews will be injected here -->
+          <div class="loading-spinner">
+            <i class="fa-solid fa-circle-notch fa-spin"></i> Loading Reviews...
+          </div>
+        </div>
+
+        <div class="load-more-container" data-animate="fade-up">
+          <button id="btn-load-more" class="btn btn-ghost">
+            <span>More Review</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="footer" id="footer">
+      <div class="footer-top-line"></div>
+      <div class="footer-container">
+        <div class="footer-brand">
+          <a href="../index.html">
+            <div class="footer-logo-wrap">
+              <img src="../00_Library/Logo/logo.svg.svg" alt="Zaraf Multiverse Group" class="footer-logo" />
+              <div class="footer-brand-text">
+                <span class="footer-brand-name">Zaraf Multiverse</span>
+                <span class="footer-brand-sub">Group</span>
+              </div>
+            </div>
+          </a>
+          <p class="footer-tagline">Strategic excellence across every frontier.</p>
+          <div class="footer-socials">
+            <a href="https://www.facebook.com/share/1FpSgmhH8F/" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/8801580678770" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-list">
+              <li><a href="../index.html#home">Home</a></li>
+              <li><a href="../2.About_Page/about.html">About</a></li>
+              <li><a href="../3.Services_Page/services.html">Services</a></li>
+              <li><a href="review.html">Reviews</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Services</h4>
+            <ul class="footer-list">
+              <li><a href="https://www.facebook.com/share/18ZcpttHJy/" target="_blank">Zaraf Transport</a></li>
+              <li><a href="https://www.facebook.com/share/1AyhTgR8ZT/" target="_blank">Zaraf Tech Hive Limited</a></li>
+              <li><a href="https://www.facebook.com/share/1LuFXrEgqZ/" target="_blank">Zaraf Real Estate</a></li>
+              <li><a href="https://www.facebook.com/share/1CbNtzfdBe/" target="_blank">Zaraf Consultancy Limited</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-direction">
+          <h4 class="footer-col-title">Our Location</h4>
+          <address class="footer-address">
+            House/Flat # SA#60, RS#108,<br />
+            Plot # 843, GM Bari Badda,<br />
+            Satarkul Road, Uttar Badda,<br />
+            Dhaka – 1212, Bangladesh
+          </address>
+          <a href="https://www.google.com/maps/dir/..." target="_blank" class="btn-direction">
+            <i class="fa-solid fa-location-arrow"></i>
+            <span>Get Direction</span>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Zaraf Multiverse Group. All rights reserved.</p>
+        <p class="footer-powered">Powered by <strong>Zaraf Tech Hive Limited</strong></p>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════ REVIEW MODAL ═══════════════════════════ -->
+    <div class="modal-overlay" id="reviewModalOverlay" onclick="closeReviewModal(event)">
+      <div class="review-modal" id="reviewModal">
+        <button class="modal-close" onclick="closeReviewModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-header">
+          <div class="modal-icon-wrap">
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <h2 class="modal-title">Share Your Experience</h2>
+          <p class="modal-sub">Your feedback helps us grow and serve you better.</p>
+        </div>
+
+        <form id="review-form" class="review-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="rev-name">Full Name</label>
+              <input type="text" id="rev-name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="rev-role">Role</label>
+              <input type="text" id="rev-role" placeholder="CEO / Manager" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="rev-company">Company Name</label>
+            <input type="text" id="rev-company" placeholder="e.g. Acme Corp" required />
+          </div>
+          
+          <div class="form-group">
+            <label>Rating</label>
+            <div class="star-rating" id="star-rating">
+              <i class="fa-regular fa-star" data-value="1"></i>
+              <i class="fa-regular fa-star" data-value="2"></i>
+              <i class="fa-regular fa-star" data-value="3"></i>
+              <i class="fa-regular fa-star" data-value="4"></i>
+              <i class="fa-regular fa-star" data-value="5"></i>
+              <input type="hidden" id="rev-rating" value="0" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="rev-text">Your Review</label>
+            <textarea id="rev-text" rows="4" placeholder="Write your experience here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span>Submit Review</span>
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════ CONTACT MODAL (Shared) ═══════════════════════════ -->
+    <div class="contact-modal-overlay" id="contactModalOverlay" onclick="closeContactModal(event)">
+      <div class="contact-modal" id="contactModal">
+        <button class="contact-modal-close" onclick="closeContactModal()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="contact-modal-header">
+          <div class="contact-modal-icon-wrap"><i class="fa-solid fa-address-book"></i></div>
+          <h2 class="contact-modal-title">Get In Touch</h2>
+          <p class="contact-modal-sub">Reach us through any of the channels below</p>
+        </div>
+        <div class="contact-modal-items">
+          <a href="https://www.facebook.com/share/1FpSgmhH8F/" target="_blank" class="contact-modal-item">
+            <div class="cmi-icon cmi-icon-fb"><i class="fa-brands fa-facebook-f"></i></div>
+            <div class="cmi-text"><strong>Visit Facebook Page</strong><span>Follow us for updates</span></div>
+            <i class="fa-solid fa-arrow-up-right-from-square cmi-arrow"></i>
+          </a>
+          <a href="tel:+8801580678770" class="contact-modal-item">
+            <div class="cmi-icon cmi-icon-call"><i class="fa-solid fa-phone"></i></div>
+            <div class="cmi-text"><strong>Call Now</strong><span>+880 1580-678770</span></div>
+            <i class="fa-solid fa-chevron-right cmi-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="../1.Home_Page/script.js"></script>
+    <script type="module" src="review.js"></script>
+  </body>
+</html>

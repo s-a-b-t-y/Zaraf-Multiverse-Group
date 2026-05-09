@@ -386,71 +386,20 @@
           </h2>
         </div>
 
-        <div class="reviews-grid">
-          <div class="review-card" data-animate="fade-up" data-delay="0">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Zaraf Consultancy transformed our startup strategy. The guidance
-              we received was world-class — and completely free. Unparalleled
-              commitment to the entrepreneurial community."
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">RK</div>
-              <div>
-                <strong>Rahman Karim</strong>
-                <span>Founder, StartBD</span>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="review-card featured"
-            data-animate="fade-up"
-            data-delay="100"
-          >
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="review-text">
-              "Zaraf Tech Hive elevated our digital presence beyond our
-              expectations. Their holistic approach to technology solutions sets
-              them apart from every competitor in the market."
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">SA</div>
-              <div>
-                <strong>Sultana Akter</strong>
-                <span>CEO, NovaCorp BD</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="review-card" data-animate="fade-up" data-delay="200">
-            <div class="review-stars">
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star-half-stroke"></i>
-            </div>
-            <p class="review-text">
-              "The professionalism of Zaraf Multiverse Group is evident in
-              everything they do. Their real estate projects are meticulously
-              planned and executed with exceptional quality."
-            </p>
-            <div class="review-author">
-              <div class="review-avatar">MH</div>
-              <div>
-                <strong>Mehedi Hasan</strong>
-                <span>Property Investor</span>
-              </div>
-            </div>
+        <div id="homepage-reviews-container" class="reviews-grid">
+          <!-- Random reviews will be injected here -->
+          <div class="loading-spinner" style="grid-column: 1/-1; text-align: center; color: var(--white-40); padding: 2rem;">
+            <i class="fa-solid fa-circle-notch fa-spin"></i> Loading Reviews...
           </div>
         </div>
+
+        <div class="section-actions" style="text-align: center; margin-top: 3rem;" data-animate="fade-up">
+          <a href="4.Review_Page/review.html" class="btn btn-ghost">
+            <span>See All Reviews</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -650,5 +599,73 @@
     </div>
 
     <script src="1.Home_Page/script.js"></script>
+    <script type="module">
+      import { db, collection, getDocs, query, limit, where } from "./database/firestore.js";
+
+      async function loadHomepageReviews() {
+        const container = document.getElementById('homepage-reviews-container');
+        if (!container) return;
+
+        try {
+          const reviewsRef = collection(db, "reviews");
+          const randomStart = Math.random();
+          const PAGE_LIMIT = 3;
+          
+          let q = query(reviewsRef, where("randomId", ">=", randomStart), limit(PAGE_LIMIT));
+          let querySnapshot = await getDocs(q);
+          let reviews = [];
+          querySnapshot.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
+
+          if (reviews.length < PAGE_LIMIT) {
+            const remainingLimit = PAGE_LIMIT - reviews.length;
+            const q2 = query(reviewsRef, where("randomId", "<", randomStart), limit(remainingLimit));
+            const querySnapshot2 = await getDocs(q2);
+            querySnapshot2.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
+          }
+
+          if (reviews.length === 0) {
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40);">No reviews yet.</p>';
+            return;
+          }
+
+          container.innerHTML = '';
+          reviews.forEach((rev, index) => {
+            const initials = rev.name.split(' ').map(n => n[0]).join('').toUpperCase();
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            if (index === 1) card.classList.add('featured');
+            card.setAttribute('data-animate', 'fade-up');
+            card.setAttribute('data-delay', (index * 100).toString());
+            
+            let starsHtml = '';
+            for (let i = 1; i <= 5; i++) {
+              starsHtml += i <= rev.rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+            }
+
+            card.innerHTML = `
+              <div class="review-stars">${starsHtml}</div>
+              <p class="review-text">"${rev.content}"</p>
+              <div class="review-author">
+                <div class="review-avatar">${initials}</div>
+                <div>
+                  <strong>${rev.name}</strong>
+                  <span>${rev.role}, ${rev.company}</span>
+                </div>
+              </div>
+            `;
+            container.appendChild(card);
+            
+            // Trigger animation if observer is already running
+            if (window.observer) window.observer.observe(card);
+          });
+        } catch (error) {
+          console.error("Error loading homepage reviews:", error);
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40);">Failed to load reviews.</p>';
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', loadHomepageReviews);
+    </script>
   </body>
 </html>
+

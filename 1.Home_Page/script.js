@@ -46,18 +46,19 @@ navLinksContainer.querySelectorAll('a').forEach(a => {
 /* ── Scroll-reveal animations ── */
 const animElements = document.querySelectorAll('[data-animate]');
 
-const observer = new IntersectionObserver((entries) => {
+window.observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const el = entry.target;
       const delay = el.dataset.delay || 0;
       setTimeout(() => el.classList.add('animated'), parseInt(delay));
-      observer.unobserve(el);
+      window.observer.unobserve(el);
     }
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-animElements.forEach(el => observer.observe(el));
+animElements.forEach(el => window.observer.observe(el));
+
 
 /* ── Counter animation for hero stats ── */
 function animateCounter(el) {
