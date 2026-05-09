@@ -624,18 +624,26 @@
           }
 
           if (reviews.length === 0) {
-            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40);">No reviews yet.</p>';
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40); padding: 3rem 0;">No reviews yet. Be the first to share your experience!</p>';
             return;
           }
 
           container.innerHTML = '';
           reviews.forEach((rev, index) => {
-            const initials = rev.name.split(' ').map(n => n[0]).join('').toUpperCase();
+            // Robust initials logic
+            const nameParts = rev.name ? rev.name.trim().split(/\s+/) : ['U'];
+            const initials = nameParts.length > 1 
+              ? (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase()
+              : nameParts[0][0].toUpperCase();
+
             const card = document.createElement('div');
             card.className = 'review-card';
+            card.setAttribute('data-id', rev.id);
             if (index === 1) card.classList.add('featured');
+            
+            // Animation attributes
             card.setAttribute('data-animate', 'fade-up');
-            card.setAttribute('data-delay', (index * 100).toString());
+            card.setAttribute('data-delay', (index * 150).toString());
             
             let starsHtml = '';
             for (let i = 1; i <= 5; i++) {
@@ -649,7 +657,7 @@
                 <div class="review-avatar">${initials}</div>
                 <div>
                   <strong>${rev.name}</strong>
-                  <span>${rev.role}, ${rev.company}</span>
+                  <span>${rev.role}${rev.company ? ', ' + rev.company : ''}</span>
                 </div>
               </div>
             `;
@@ -660,7 +668,7 @@
           });
         } catch (error) {
           console.error("Error loading homepage reviews:", error);
-          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40);">Failed to load reviews.</p>';
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40); padding: 3rem 0;">Failed to load reviews. Please check back later.</p>';
         }
       }
 

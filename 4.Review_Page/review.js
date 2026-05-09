@@ -121,12 +121,23 @@ function renderReviews(reviews, clear = false) {
   }
 
   reviews.forEach((rev, index) => {
+    // Avoid duplicates if already rendered
+    if (document.querySelector(`[data-id="${rev.id}"]`)) return;
+
     const card = document.createElement('div');
     card.className = 'review-card';
+    card.setAttribute('data-id', rev.id);
+    
+    // Maintain the staggered grid look: every 2nd card in a 3-col layout is featured
+    // In mobile (1-col) it just adds variety
     if (index % 3 === 1) card.classList.add('featured');
-    card.style.animationDelay = `${index * 0.1}s`;
+    card.style.animationDelay = `${(index % PAGE_LIMIT) * 0.1}s`;
 
-    const initials = rev.name.split(' ').map(n => n[0]).join('').toUpperCase();
+    // Robust initials logic
+    const nameParts = rev.name ? rev.name.trim().split(/\s+/) : ['U'];
+    const initials = nameParts.length > 1 
+      ? (nameParts[0][0] + nameParts[nameParts.length - 1][0]).toUpperCase()
+      : nameParts[0][0].toUpperCase();
     
     card.innerHTML = `
       <div class="review-stars">
@@ -137,7 +148,7 @@ function renderReviews(reviews, clear = false) {
         <div class="review-avatar">${initials}</div>
         <div>
           <strong>${rev.name}</strong>
-          <span>${rev.role}, ${rev.company}</span>
+          <span>${rev.role}${rev.company ? ', ' + rev.company : ''}</span>
         </div>
       </div>
     `;
@@ -154,37 +165,50 @@ function renderStars(rating) {
   return starsHtml;
 }
 
-// ── Load More (Non-random, just get latest ones excluding already shown?) ──
-// For simplicity, we'll just fetch more reviews ordered by date.
+// ── Load More (Fetch latest, excluding already shown) ──
 btnLoadMore.addEventListener('click', async () => {
   btnLoadMore.disabled = true;
+  const originalContent = btnLoadMore.innerHTML;
   btnLoadMore.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading...';
   
   try {
     const reviewsRef = collection(db, "reviews");
-    const q = query(reviewsRef, orderBy("createdAt", "desc"), limit(20));
+    // Fetch a larger batch to find new ones
+    const q = query(reviewsRef, orderBy("createdAt", "desc"), limit(30));
     const querySnapshot = await getDocs(q);
     
-    const existingIds = Array.from(reviewsContainer.querySelectorAll('.review-card')).map(c => c.dataset.id); // If we added IDs
-    
-    let newReviews = [];
+    let fetchedReviews = [];
     querySnapshot.forEach(doc => {
-      // Avoid duplicates if they were already in the random set
-      // We should ideally track shown IDs
-      newReviews.push({ id: doc.id, ...doc.data() });
+      fetchedReviews.push({ id: doc.id, ...doc.data() });
     });
     
-    // Filter out already shown
-    const shownIds = new Set(Array.from(document.querySelectorAll('.review-card')).map(el => el.getAttribute('data-id')));
-    const filtered = newReviews.filter(r => !shownIds.has(r.id));
+    // Filter out already shown IDs
+    const shownIds = new Set(Array.from(reviewsContainer.querySelectorAll('.review-card')).map(el => el.getAttribute('data-id')));
+    const newOnes = fetchedReviews.filter(r => !shownIds.has(r.id));
 
-    renderReviews(filtered);
-    btnLoadMore.style.display = 'none'; // Hide after loading "all" (simulated here)
+    if (newOnes.length > 0) {
+      renderReviews(newOnes);
+    } else {
+      btnLoadMore.innerHTML = '<span>No More Reviews</span>';
+      setTimeout(() => {
+        btnLoadMore.style.display = 'none';
+      }, 2000);
+      return;
+    }
+
+    // If we fetched fewer than a decent amount of "new" ones, hide button
+    if (newOnes.length < 5) {
+      btnLoadMore.style.display = 'none';
+    }
+
   } catch (error) {
     console.error("Error loading more reviews:", error);
+    btnLoadMore.innerHTML = '<span>Error Loading</span>';
   } finally {
     btnLoadMore.disabled = false;
-    btnLoadMore.innerHTML = '<span>More Review</span><i class="fa-solid fa-chevron-down"></i>';
+    if (btnLoadMore.style.display !== 'none') {
+      btnLoadMore.innerHTML = originalContent;
+    }
   }
 });
 
