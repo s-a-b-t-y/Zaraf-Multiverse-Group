@@ -15,7 +15,19 @@ const PAGE_LIMIT = 6;
 document.addEventListener('DOMContentLoaded', () => {
   loadRandomReviews();
   setupStarRating();
+  setupAutoResizeTextarea();
 });
+
+function setupAutoResizeTextarea() {
+  const textarea = document.getElementById('rev-text');
+  if (!textarea) return;
+
+  textarea.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+  });
+}
+
 
 // ── Star Rating Logic ──
 function setupStarRating() {
@@ -224,6 +236,10 @@ reviewForm.addEventListener('submit', async (e) => {
     setTimeout(() => {
       closeReviewModal();
       reviewForm.reset();
+      // Reset textarea height
+      const textarea = document.getElementById('rev-text');
+      if (textarea) textarea.style.height = 'auto';
+      
       // Reset stars
       const stars = starRating.querySelectorAll('i');
       stars.forEach(s => {

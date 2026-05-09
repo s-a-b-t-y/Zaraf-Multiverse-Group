@@ -101,6 +101,31 @@
   overflow-y: auto;
 }
 
+/* ── Modal Scrollbar ── */
+.review-modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.review-modal::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 15px 0; /* Keeps the scrollbar away from the curved corners */
+}
+
+.review-modal::-webkit-scrollbar-thumb {
+  background: var(--gold-400);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.review-modal::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-300);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+
+
 .modal-overlay.active .review-modal {
   transform: scale(1) translateY(0);
   opacity: 1;
@@ -197,7 +222,9 @@
   font-family: inherit;
   font-size: 1rem;
   transition: var(--transition);
+  resize: none;
 }
+
 
 .form-group input:focus,
 .form-group textarea:focus {
