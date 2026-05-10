@@ -86,11 +86,11 @@ async function loadRandomReviews() {
 
     renderReviews(reviews, true);
     
-    // If we have fewer reviews than the limit, hide the load more button
-    if (reviews.length < PAGE_LIMIT) {
-      btnLoadMore.style.display = 'none';
-    } else {
+    // Show the button if there are any reviews, so users can load all
+    if (reviews.length > 0) {
       btnLoadMore.style.display = 'flex';
+    } else {
+      btnLoadMore.style.display = 'none';
     }
   } catch (error) {
     console.error("Error loading reviews:", error);

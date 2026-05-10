@@ -611,17 +611,34 @@
           const randomStart = Math.random();
           const PAGE_LIMIT = 3;
           
-          let q = query(reviewsRef, where("randomId", ">=", randomStart), limit(PAGE_LIMIT));
+          // Filter: only 4 and 5 stars (rating >= 4)
+          // We use randomId to get random reviews from the filtered set
+          let q = query(
+            reviewsRef, 
+            where("rating", ">=", 4),
+            where("randomId", ">=", randomStart), 
+            limit(PAGE_LIMIT)
+          );
+          
           let querySnapshot = await getDocs(q);
           let reviews = [];
           querySnapshot.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
 
+          // If we have fewer than limit, wrap around
           if (reviews.length < PAGE_LIMIT) {
             const remainingLimit = PAGE_LIMIT - reviews.length;
-            const q2 = query(reviewsRef, where("randomId", "<", randomStart), limit(remainingLimit));
+            const q2 = query(
+              reviewsRef, 
+              where("rating", ">=", 4),
+              where("randomId", "<", randomStart), 
+              limit(remainingLimit)
+            );
             const querySnapshot2 = await getDocs(q2);
             querySnapshot2.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
           }
+
+          // Shuffle the 3 reviews in memory for variety
+          reviews = reviews.sort(() => Math.random() - 0.5);
 
           if (reviews.length === 0) {
             container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40); padding: 3rem 0;">No reviews yet. Be the first to share your experience!</p>';
