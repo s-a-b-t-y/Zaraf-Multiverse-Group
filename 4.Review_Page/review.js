@@ -13,7 +13,7 @@ const PAGE_LIMIT = 6;
 
 // ── Initialization ──
 document.addEventListener('DOMContentLoaded', () => {
-  loadInitialReviews();
+  loadRandomReviews();
   setupStarRating();
   setupAutoResizeTextarea();
 });
@@ -63,7 +63,7 @@ function setupStarRating() {
 }
 
 // ── Fetching Logic ──
-async function loadInitialReviews() {
+async function loadRandomReviews() {
   reviewsContainer.innerHTML = `
     <div class="loading-spinner">
       <i class="fa-solid fa-circle-notch fa-spin"></i> Loading Reviews...
@@ -73,11 +73,10 @@ async function loadInitialReviews() {
   try {
     const reviewsRef = collection(db, "reviews");
     
-    // Order by rating descending, then createdAt descending
+    // Order by rating descending
     const q = query(
       reviewsRef, 
       orderBy("rating", "desc"),
-      orderBy("createdAt", "desc"),
       limit(PAGE_LIMIT)
     );
     
@@ -91,11 +90,16 @@ async function loadInitialReviews() {
     if (reviews.length < PAGE_LIMIT) {
       btnLoadMore.style.display = 'none';
     } else {
-      btnLoadMore.style.display = 'flex'; // Ensure it's visible if there might be more
+      btnLoadMore.style.display = 'flex';
     }
   } catch (error) {
     console.error("Error loading reviews:", error);
-    reviewsContainer.innerHTML = `<p class="error">Failed to load reviews. Please try again later.</p>`;
+    reviewsContainer.innerHTML = `
+      <div class="error-message">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>Failed to load reviews. Please check your internet connection or try again later.</p>
+      </div>
+    `;
   }
 }
 
@@ -161,7 +165,7 @@ btnLoadMore.addEventListener('click', async () => {
   try {
     const reviewsRef = collection(db, "reviews");
     // Fetch all reviews ordered by rating
-    const q = query(reviewsRef, orderBy("rating", "desc"), orderBy("createdAt", "desc"));
+    const q = query(reviewsRef, orderBy("rating", "desc"));
     const querySnapshot = await getDocs(q);
     
     let fetchedReviews = [];
@@ -253,7 +257,7 @@ reviewForm.addEventListener('submit', async (e) => {
       submitBtn.style.background = '';
       
       // Reload reviews to show the new one
-      loadInitialReviews();
+      loadRandomReviews();
     }, 2000);
 
   } catch (error) {
