@@ -13,7 +13,7 @@ const PAGE_LIMIT = 6;
 
 // ── Initialization ──
 document.addEventListener('DOMContentLoaded', () => {
-  loadRandomReviews();
+  loadInitialReviews();
   setupStarRating();
   setupAutoResizeTextarea();
 });
@@ -63,7 +63,7 @@ function setupStarRating() {
 }
 
 // ── Fetching Logic ──
-async function loadRandomReviews() {
+async function loadInitialReviews() {
   reviewsContainer.innerHTML = `
     <div class="loading-spinner">
       <i class="fa-solid fa-circle-notch fa-spin"></i> Loading Reviews...
@@ -72,40 +72,27 @@ async function loadRandomReviews() {
 
   try {
     const reviewsRef = collection(db, "reviews");
-    // To get random: we assign a randomId [0, 1] to each doc on creation.
-    // Here we pick a random starting point.
-    const randomStart = Math.random();
     
-    let q = query(
+    // Order by rating descending, then createdAt descending
+    const q = query(
       reviewsRef, 
-      where("randomId", ">=", randomStart),
+      orderBy("rating", "desc"),
+      orderBy("createdAt", "desc"),
       limit(PAGE_LIMIT)
     );
     
-    let querySnapshot = await getDocs(q);
+    const querySnapshot = await getDocs(q);
     let reviews = [];
     querySnapshot.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
 
-    // If we have fewer than limit, wrap around and get from the beginning
-    if (reviews.length < PAGE_LIMIT) {
-      const remainingLimit = PAGE_LIMIT - reviews.length;
-      const q2 = query(
-        reviewsRef,
-        where("randomId", "<", randomStart),
-        limit(remainingLimit)
-      );
-      const querySnapshot2 = await getDocs(q2);
-      querySnapshot2.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
-    }
-
-    // Shuffle results in memory for better "random" feel
-    reviews = reviews.sort(() => Math.random() - 0.5);
-
     renderReviews(reviews, true);
     
-    // For pagination we'll use normal ordering after the initial random load
-    // Actually, the user asked for "More Review" to show all. 
-    // We can just keep track of IDs we've already shown to avoid duplicates.
+    // If we have fewer reviews than the limit, hide the load more button
+    if (reviews.length < PAGE_LIMIT) {
+      btnLoadMore.style.display = 'none';
+    } else {
+      btnLoadMore.style.display = 'flex'; // Ensure it's visible if there might be more
+    }
   } catch (error) {
     console.error("Error loading reviews:", error);
     reviewsContainer.innerHTML = `<p class="error">Failed to load reviews. Please try again later.</p>`;
@@ -165,16 +152,16 @@ function renderStars(rating) {
   return starsHtml;
 }
 
-// ── Load More (Fetch latest, excluding already shown) ──
+// ── Load More (Fetch all remaining) ──
 btnLoadMore.addEventListener('click', async () => {
   btnLoadMore.disabled = true;
   const originalContent = btnLoadMore.innerHTML;
-  btnLoadMore.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading...';
+  btnLoadMore.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Loading All Reviews...';
   
   try {
     const reviewsRef = collection(db, "reviews");
-    // Fetch a larger batch to find new ones
-    const q = query(reviewsRef, orderBy("createdAt", "desc"), limit(30));
+    // Fetch all reviews ordered by rating
+    const q = query(reviewsRef, orderBy("rating", "desc"), orderBy("createdAt", "desc"));
     const querySnapshot = await getDocs(q);
     
     let fetchedReviews = [];
@@ -182,33 +169,21 @@ btnLoadMore.addEventListener('click', async () => {
       fetchedReviews.push({ id: doc.id, ...doc.data() });
     });
     
-    // Filter out already shown IDs
-    const shownIds = new Set(Array.from(reviewsContainer.querySelectorAll('.review-card')).map(el => el.getAttribute('data-id')));
-    const newOnes = fetchedReviews.filter(r => !shownIds.has(r.id));
+    // Render all of them (renderReviews already handles duplicates)
+    renderReviews(fetchedReviews);
 
-    if (newOnes.length > 0) {
-      renderReviews(newOnes);
-    } else {
-      btnLoadMore.innerHTML = '<span>No More Reviews</span>';
-      setTimeout(() => {
-        btnLoadMore.style.display = 'none';
-      }, 2000);
-      return;
-    }
-
-    // If we fetched fewer than a decent amount of "new" ones, hide button
-    if (newOnes.length < 5) {
-      btnLoadMore.style.display = 'none';
-    }
+    // Hide the button after loading all
+    btnLoadMore.style.display = 'none';
 
   } catch (error) {
     console.error("Error loading more reviews:", error);
     btnLoadMore.innerHTML = '<span>Error Loading</span>';
-  } finally {
     btnLoadMore.disabled = false;
-    if (btnLoadMore.style.display !== 'none') {
-      btnLoadMore.innerHTML = originalContent;
-    }
+    setTimeout(() => {
+      if (btnLoadMore.style.display !== 'none') {
+        btnLoadMore.innerHTML = originalContent;
+      }
+    }, 2000);
   }
 });
 
@@ -277,8 +252,8 @@ reviewForm.addEventListener('submit', async (e) => {
       submitBtn.innerHTML = originalBtnContent;
       submitBtn.style.background = '';
       
-      // Reload reviews to show the new one? Or just reload
-      loadRandomReviews();
+      // Reload reviews to show the new one
+      loadInitialReviews();
     }, 2000);
 
   } catch (error) {
