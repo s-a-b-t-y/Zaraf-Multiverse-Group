@@ -9,25 +9,28 @@ const sections = document.querySelectorAll('section[id]');
 const hamburger = document.getElementById('hamburger');
 const navLinksContainer = document.getElementById('navLinks');
 
+// Scroll state for navbar background
 window.addEventListener('scroll', () => {
-  // Scrolled style
   if (window.scrollY > 40) {
     navbar.classList.add('scrolled');
   } else {
     navbar.classList.remove('scrolled');
   }
+}, { passive: true });
 
-  // Active nav link highlight
-  let current = '';
-  sections.forEach(sec => {
-    const top = sec.offsetTop - 100;
-    if (window.scrollY >= top) current = sec.getAttribute('id');
+// Efficient active nav link highlight using IntersectionObserver
+const activeNavObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === id);
+      });
+    }
   });
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.dataset.section === current) link.classList.add('active');
-  });
-});
+}, { threshold: 0.5, rootMargin: '-72px 0px 0px 0px' });
+
+sections.forEach(sec => activeNavObserver.observe(sec));
 
 /* ── Hamburger menu ── */
 hamburger.addEventListener('click', () => {

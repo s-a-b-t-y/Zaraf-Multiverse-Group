@@ -41,14 +41,24 @@ address{font-style:normal}
 ::-webkit-scrollbar-track{background:var(--navy-900)}
 ::-webkit-scrollbar-thumb{background:var(--gold-400);border-radius:3px}
 
+/* Optimize Rendering */
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
+#home {
+  content-visibility: visible; /* Don't hide hero */
+}
+
 /* ═══════════════ NAVBAR ═══════════════ */
 .navbar {
   position: fixed;top:0;left:0;right:0;z-index:1000;
   padding: 0 2rem;
-  background: rgba(6,13,31,0.75);
-  backdrop-filter: blur(18px);
+  background: rgba(6,13,31,0.85); /* Slightly more opaque for performance */
+  backdrop-filter: blur(12px); /* Reduced blur for performance */
   border-bottom: 1px solid var(--border);
   transition: var(--transition);
+  will-change: background, backdrop-filter;
 }
 .navbar.scrolled{background:rgba(6,13,31,0.96);box-shadow:0 4px 32px rgba(0,0,0,0.5)}
 .nav-container{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1280px;margin:0 auto}
@@ -272,6 +282,9 @@ address{font-style:normal}
 [data-animate="fade-right"]{transform:translateX(-30px)}
 [data-animate="fade-left"]{transform:translateX(30px)}
 [data-animate].animated{opacity:1;transform:none}
+[data-animate] {
+  will-change: opacity, transform;
+}
 
 /* ═══════════════ RESPONSIVE ═══════════════ */
 .nav-contact-mobile{display:none}

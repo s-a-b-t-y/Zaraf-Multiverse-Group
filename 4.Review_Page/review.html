@@ -11,13 +11,23 @@
     <link rel="icon" type="image/png" href="../00_Library/favicon/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+    />
+    <link
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
     <link rel="stylesheet" href="../1.Home_Page/style.css" />
     <link rel="stylesheet" href="review.css" />
@@ -32,6 +42,9 @@
             src="../00_Library/Logo/logo.svg.svg"
             alt="Zaraf Multiverse Group Logo"
             class="nav-logo"
+            width="40"
+            height="40"
+            decoding="async"
           />
           <div class="nav-brand-text">
             <span class="nav-brand-name">Zaraf Multiverse</span>
@@ -123,7 +136,7 @@
         <div class="footer-brand">
           <a href="../index.html">
             <div class="footer-logo-wrap">
-              <img src="../00_Library/Logo/logo.svg.svg" alt="Zaraf Multiverse Group" class="footer-logo" />
+              <img src="../00_Library/Logo/logo.svg.svg" alt="Zaraf Multiverse Group" class="footer-logo" width="38" height="38" loading="lazy" decoding="async" />
               <div class="footer-brand-text">
                 <span class="footer-brand-name">Zaraf Multiverse</span>
                 <span class="footer-brand-sub">Group</span>
@@ -262,7 +275,7 @@
       </div>
     </div>
 
-    <script src="../1.Home_Page/script.js"></script>
-    <script type="module" src="review.js"></script>
+    <script src="../1.Home_Page/script.js" defer></script>
+    <script type="module" src="review.js" defer></script>
   </body>
 </html>
