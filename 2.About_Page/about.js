@@ -13,4 +13,21 @@ document.addEventListener("DOMContentLoaded", () => {
       successSection.appendChild(particle);
     }
   }
+
+  // Handle Chairman Image Loading
+  const chairmanImg = document.getElementById('chairmanImg');
+  const chairmanWrap = document.querySelector('.chairman-img-wrap');
+
+  function handleImgLoad() {
+    if (chairmanWrap) chairmanWrap.classList.remove('loading');
+    if (chairmanImg) chairmanImg.classList.add('loaded');
+  }
+
+  if (chairmanImg) {
+    if (chairmanImg.complete) {
+      handleImgLoad();
+    } else {
+      chairmanImg.addEventListener('load', handleImgLoad);
+    }
+  }
 });

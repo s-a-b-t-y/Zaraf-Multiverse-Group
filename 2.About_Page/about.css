@@ -217,6 +217,24 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
+  aspect-ratio: 350 / 450;
+  background: var(--navy-800);
+}
+
+/* Skeleton Loader Effect */
+.chairman-img-wrap.loading::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: skeleton-pulse 1.5s infinite;
+  z-index: 1;
+}
+
+@keyframes skeleton-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .chairman-img-wrap::after {
@@ -231,7 +249,12 @@
 .chairman-img {
   width: 100%;
   display: block;
-  transition: transform 0.5s ease;
+  transition: opacity 0.8s ease, transform 0.5s ease;
+  opacity: 0;
+}
+
+.chairman-img.loaded {
+  opacity: 1;
 }
 
 .chairman-img-wrap:hover .chairman-img {
