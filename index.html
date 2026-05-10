@@ -611,42 +611,42 @@
           const randomStart = Math.random();
           const PAGE_LIMIT = 3;
           
-          // Filter: only 4 and 5 stars (rating >= 4)
-          // We use randomId to get random reviews from the filtered set
+          // To avoid "Missing Index" errors, we only use ONE filter in the Firestore query.
+          // We fetch a larger batch of random reviews and then filter for 4-5 stars in JavaScript.
           let q = query(
             reviewsRef, 
-            where("rating", ">=", 4),
             where("randomId", ">=", randomStart), 
-            limit(PAGE_LIMIT)
+            limit(15) 
           );
           
           let querySnapshot = await getDocs(q);
-          let reviews = [];
-          querySnapshot.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
+          let allFetched = [];
+          querySnapshot.forEach(doc => allFetched.push({ id: doc.id, ...doc.data() }));
 
-          // If we have fewer than limit, wrap around
-          if (reviews.length < PAGE_LIMIT) {
-            const remainingLimit = PAGE_LIMIT - reviews.length;
+          // If we didn't get enough, wrap around
+          if (allFetched.length < 10) {
             const q2 = query(
               reviewsRef, 
-              where("rating", ">=", 4),
               where("randomId", "<", randomStart), 
-              limit(remainingLimit)
+              limit(10)
             );
             const querySnapshot2 = await getDocs(q2);
-            querySnapshot2.forEach(doc => reviews.push({ id: doc.id, ...doc.data() }));
+            querySnapshot2.forEach(doc => allFetched.push({ id: doc.id, ...doc.data() }));
           }
 
-          // Shuffle the 3 reviews in memory for variety
-          reviews = reviews.sort(() => Math.random() - 0.5);
+          // Filter for 4 or 5 stars and shuffle
+          let filteredReviews = allFetched
+            .filter(rev => rev.rating >= 4)
+            .sort(() => Math.random() - 0.5)
+            .slice(0, PAGE_LIMIT);
 
-          if (reviews.length === 0) {
-            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40); padding: 3rem 0;">No reviews yet. Be the first to share your experience!</p>';
+          if (filteredReviews.length === 0) {
+            container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--white-40); padding: 3rem 0;">No high-rated reviews found yet.</p>';
             return;
           }
 
           container.innerHTML = '';
-          reviews.forEach((rev, index) => {
+          filteredReviews.forEach((rev, index) => {
             // Robust initials logic
             const nameParts = rev.name ? rev.name.trim().split(/\s+/) : ['U'];
             const initials = nameParts.length > 1 
